@@ -21,7 +21,7 @@ def postresolve_hook(conduit):
                 packages[transaction.name] = {}
 
             version = { "version": transaction.version, "release": transaction.release,
-                    "epoch": transaction.epoch, "arch": transaction.arch, "state": transaction.ts_state }
+                    "epoch": transaction.epoch, "arch": transaction.arch, "state": transaction.ts_state, "repo": getattr(transaction.po, 'repoid') }
 
             if transaction.ts_state:
                 packages[transaction.name]["pending"] = version
